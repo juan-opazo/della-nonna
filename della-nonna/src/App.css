@@ -8,32 +8,63 @@ h4 {
 
 .item-list-container {
   display: grid;
-  grid-template-columns: 33% 34% 33%;
+  grid-template-columns: 100%;
   grid-template-rows: auto;
+  justify-items: center;
 }
 
 .item-card-container {
   display: flex;
   border-width: 0.1em;
-  border: solid;
+  
   margin: 0.5em;
-  border-radius: 4px;
+  
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  min-width: 100px;
+  min-width: 200px;
   max-width: 300px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .item-card-container > .image {
-  width: 50px;
+  width: 100%;
 }
 
-.count-element {
+.size-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  height: 70px;
+}
+
+.bordered {
+  border: solid;
+  border-radius: 4px;
+}
+
+.size-selected {
+  border-color: rgb(255, 68, 68);
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.size-item {
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.size-item > img {
+  cursor: pointer;
+}
+
+.counter-container {
   display: flex;
   justify-content: space-around;
   align-items: center;
   width: 100%;
+  margin: 0.5em 0;
 }
 
 .btn-icon {
@@ -78,5 +109,17 @@ h4 {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media (min-width: 700px) {
+  .item-list-container {
+    grid-template-columns: 50% 50%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .item-list-container {
+    grid-template-columns: 33% 34% 33%;
   }
 }
