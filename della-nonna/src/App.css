@@ -1,15 +1,42 @@
-h4 {
+h4, h3, h2 {
   text-align: center;
+  margin: 0;
+}
+
+main {
+  padding: 0.5em;
+  background-color: #F2F3F5;
+}
+
+footer {
+  background-color: #FAFAFA;
 }
 
 .della-nonna-container {
 
 }
 
+.summary-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 1em;
+}
+
+.summary-items-container {
+  width: 75%;
+  grid-template-columns: 50% 50%;
+  display: grid;
+  align-items: center;
+  grid-gap: 1em;
+}
+
 .item-list-container {
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: auto;
+  grid-row-gap: 1em;
   justify-items: center;
 }
 
@@ -23,7 +50,7 @@ h4 {
   flex-direction: column;
   align-items: center;
   min-width: 200px;
-  max-width: 300px;
+  max-width: 400px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
@@ -41,11 +68,13 @@ h4 {
 .bordered {
   border: solid;
   border-radius: 4px;
+  border-color: #2b2b2b;
 }
 
 .size-selected {
   border-color: rgb(255, 68, 68);
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .size-item {
@@ -75,6 +104,10 @@ h4 {
 
 .App {
   text-align: center;
+}
+
+.set-divider-width {
+  width: 75%;
 }
 
 .App-logo {
@@ -113,12 +146,18 @@ h4 {
 }
 
 @media (min-width: 700px) {
+  .summary-items-container {
+    width: 50%;
+  }
   .item-list-container {
     grid-template-columns: 50% 50%;
   }
+  .set-divider-width {
+    width: 50%;
+  }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1300px) {
   .item-list-container {
     grid-template-columns: 33% 34% 33%;
   }
