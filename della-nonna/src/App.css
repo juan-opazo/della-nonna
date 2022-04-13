@@ -6,6 +6,7 @@ h4, h3, h2 {
 main {
   padding: 0.5em;
   background-color: #F2F3F5;
+  margin-top: 63px;
 }
 
 footer {
@@ -26,7 +27,7 @@ footer {
 
 .summary-items-container {
   width: 75%;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 50% 40% 10%;
   display: grid;
   align-items: center;
   grid-gap: 1em;
@@ -94,6 +95,11 @@ footer {
   align-items: center;
   width: 100%;
   margin: 0.5em 0;
+}
+
+.delete-item-icon {
+  cursor: pointer;
+  color: #ec2c2c;
 }
 
 .btn-icon {
