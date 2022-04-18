@@ -1,3 +1,70 @@
+@keyframes zoom-in {
+  0% {
+    transform: scale(1, 1);
+  }
+  100% {
+    transform: scale(1.05, 1.05);
+  }
+}
+
+@keyframes zoom-out {
+  0% {
+    transform: scale(1.05, 1.05);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes zoom-in_dark {
+  0% {
+    transform: scale(1, 1);
+    filter: brightness(1);
+  }
+  100% {
+    transform: scale(1.05, 1.05);
+    filter: brightness(0.8);
+  }
+}
+
+@keyframes zoom-out_light {
+  0% {
+    transform: scale(1.05, 1.05);
+    filter: brightness(0.8);
+  }
+  100% {
+    transform: scale(1, 1);
+    filter: brightness(1);
+  }
+}
+
+@keyframes dark {
+  0% {
+    filter: brightness(1);
+  }
+  100% {
+    filter: brightness(0.8);
+  }
+}
+
+@keyframes light {
+  0% {
+    filter: brightness(0.8);
+  }
+  100% {
+    filter: brightness(1);
+  }
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateY(0);
+  }
+  100% {
+    transform: rotateY(180deg);
+  }
+}
+
 h4, h3, h2 {
   text-align: center;
   margin: 0;
@@ -50,12 +117,59 @@ footer {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  min-width: 200px;
+  width: 90%;
+  min-width: 300px;
   max-width: 400px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  animation: zoom-out 1s ease;
 }
 
-.item-card-container > .image {
+.item-card-container:hover {
+  animation: zoom-in 1s ease;
+  transform: scale(1.05);
+}
+
+.item-card-content {
+  width: 100%;
+  min-height: 350px;
+  perspective: 1000px;
+}
+
+.item-card-content-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.item-card-content:hover .item-card-content-inner {
+  transform: rotateY(180deg);
+}
+
+.item-card-content-front, .item-card-content-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+.item-card-content-front {
+  color: black;
+}
+
+.item-card-content-back {
+  transform: rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  padding: 1em;
+}
+
+.item-card-content-front > .image {
   width: 100%;
 }
 
@@ -76,6 +190,11 @@ footer {
   border-color: rgb(255, 68, 68);
   /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  
+}
+
+.size-selected:hover {
+  /* filter: brightness(1.2); */
 }
 
 .size-item {
@@ -142,6 +261,57 @@ footer {
   color: #61dafb;
 }
 
+/* LOGIN SECTION */
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: rgb(11,62,114);
+  background: linear-gradient(0deg, rgba(11,62,114,1) 6%, rgba(55,97,139,1) 30%);
+}
+
+.login-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  width: 75%;
+  max-width: 400px;
+  border: solid;
+  border-radius: 4px;
+  border-color: #eaecef;
+  background: #F2F3F5;
+  padding: 1em;
+}
+
+.login-content > form {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login-content > form > input {
+  margin: 1em;
+  border-width: 0;
+  border-bottom-width: 1px;
+  background: #F2F3F5;
+}
+
+.login-content > form > input:focus {
+  margin: 1em;
+  border-width: 0;
+  border-bottom-width: 1px;
+  background: #F2F3F5;
+}
+
+.login-content > form > button {
+  margin: 1em;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -151,19 +321,28 @@ footer {
   }
 }
 
-@media (min-width: 700px) {
+@media (min-width: 400px) {
+  .item-card-content {
+    min-height: 400px;
+  }
+}
+
+@media (min-width: 720px) {
   .summary-items-container {
     width: 50%;
   }
   .item-list-container {
     grid-template-columns: 50% 50%;
   }
+  .item-card-content {
+    min-height: 400px;
+  }
   .set-divider-width {
     width: 50%;
   }
 }
 
-@media (min-width: 1300px) {
+@media (min-width: 1400px) {
   .item-list-container {
     grid-template-columns: 33% 34% 33%;
   }
